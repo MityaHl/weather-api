@@ -8,7 +8,6 @@ import Autocomplete from '@material-ui/lab/Autocomplete';
 import { css } from 'aphrodite';
 import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
-import FormHelperText from '@material-ui/core/FormHelperText';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import styles from './MenuStyles';
@@ -94,7 +93,7 @@ const Menu = ({state, onChangeCity, onGetWeather, onGetFiveDaysWeather}) => {
   return (
     <div>
         <Grid container direction="column" alignItems="center">
-              <Typography variant="h6" className={css(styles.typography)}>
+              <Typography variant="h6" className={css(styles.typography ,styles.smallTypography)}>
                   Choose the city
               </Typography>
               <Autocomplete

@@ -13,7 +13,7 @@ const mapDispatchToProps =  dispatch => ({
         dispatch(enterCity(data));
     },
     onGetWeather: (data) => {
-      dispatch(getWeather(data));
+      dispatch(getWeather(data)); 
     },
     onGetFiveDaysWeather: (data) => {
       dispatch(getFiveDayWeather(data));

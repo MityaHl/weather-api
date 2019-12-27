@@ -10,9 +10,18 @@ export default StyleSheet.create({
         marginTop: '20px'
     },
     temperature: {
-        marginRight: '20px'
+        marginRight: '20px',
+        marginTop: '10px',
+        '@media (max-width: 600px)': {
+            fontSize: '15px',
+        }
     },
     listItem: {
-        borderBottom: '1px solid #d6d6d6'
+        borderBottom: '1px solid #d6d6d6',
+    },
+    listText: {
+        '@media (max-width: 600px)': {
+            fontSize: '15px',
+        }
     }
 })

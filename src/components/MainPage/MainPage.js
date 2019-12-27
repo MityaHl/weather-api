@@ -1,11 +1,21 @@
-import React  from 'react';
+import React from 'react'
+import { css } from 'aphrodite'
+import Grid from '@material-ui/core/Grid'
 
-const MainPage = () => {
-  return (
-    <div>
-      <img style={{marginTop: '20px', borderRadius: '30px'}} src="https://cs6.pikabu.ru/images/big_size_comm/2015-07_1/1435781212152183704.jpg" alt="aaa"></img>
-    </div>
-  );
-}
+import styles from './MainPageStyles'
 
-export default MainPage;
+const gridClassName = css(styles.text)
+
+const MainPage = () => (
+  <Grid
+    container
+    direction="row"
+    alignItems="center"
+    justify="center"
+    className={gridClassName}
+  >
+    <p>What is the weather today?</p>
+  </Grid>
+)
+
+export default MainPage

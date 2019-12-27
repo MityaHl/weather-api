@@ -5,6 +5,8 @@ import MainPage from './components/MainPage/MainPage';
 import MenuContainer from './components/Menu/MenuContainer';
 import WeatherInfoContainer from './components/WeatherInfo/WeatherInfoContainer';
 import Grid from '@material-ui/core/Grid';
+import styles from './AppStyles';
+import { css } from 'aphrodite';
 
 const App = (state) => {
   return (
@@ -12,10 +14,10 @@ const App = (state) => {
       <Header/>
       <Container>
         <Grid container spacing={3}>
-            <Grid item xs={3}>
+            <Grid item md={3} xs={12}>
               <MenuContainer/>
             </Grid>
-            <Grid item xs={9}>
+            <Grid item md={9} xs={12}>
               {
                 state.state.fiveDayWeather[1] ? (<WeatherInfoContainer/>) : (<MainPage/>)
               }  
