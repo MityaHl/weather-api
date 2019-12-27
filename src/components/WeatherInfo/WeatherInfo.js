@@ -71,7 +71,7 @@ const WeatherInfo = ({weather, fiveDayWeather}) => {
                   </ListItemIcon>
                   <ListItemText primary="Wind spd."/>
                   <ListItemSecondaryAction>
-                      <Typography>{weather.wind + ' mps'}</Typography>
+                      <Typography>{weather.wind.toFixed(1) + ' mps'}</Typography>
                   </ListItemSecondaryAction>
               </ListItem>
               <ListItem className={css(styles.listItem)}>
