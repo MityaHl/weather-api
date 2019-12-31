@@ -58,7 +58,7 @@ const WeatherInfo = ({weather, fiveDayWeather}) => {
             <List>
               <ListItem className={css(styles.listItem)}>
                   <ListItemIcon>
-                      <i className="fas fa-2x fa-cloud-rain"></i>
+                    <i className="fas fa-2x fa-cloud-rain"></i>
                   </ListItemIcon>
                   <ListItemText primary="Precipitation"/>
                   <ListItemSecondaryAction>

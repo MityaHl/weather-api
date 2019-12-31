@@ -12,7 +12,7 @@ import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import styles from './MenuStyles';
 
-const Menu = ({state, onChangeCity, onGetWeather, onGetFiveDaysWeather}) => {
+const Menu = ({state, onChangeCity, onGetWeather, onGetFiveDaysWeather, onOpenFormFalse}) => {
 
   const [service, setService] = useState(1);
 
@@ -50,7 +50,8 @@ const Menu = ({state, onChangeCity, onGetWeather, onGetFiveDaysWeather}) => {
         ))
         onGetFiveDaysWeather(data)
       })
-    ]).catch(alert);    
+    ]).then(onOpenFormFalse)
+      .catch(alert);    
   }
 
   const queryWeatherBit = () => {
@@ -87,7 +88,9 @@ const Menu = ({state, onChangeCity, onGetWeather, onGetFiveDaysWeather}) => {
         ))
         onGetFiveDaysWeather(data)
       })
-    ]).catch(alert);    
+    ])
+      .then(onOpenFormFalse)
+      .catch(alert);    
   }
 
   return (
@@ -102,7 +105,11 @@ const Menu = ({state, onChangeCity, onGetWeather, onGetFiveDaysWeather}) => {
                     className={css(styles.autoComplit)}
                     style={{ width: 300 }}
                     renderInput={params => (
-                        <TextField label="City" variant="outlined" fullWidth 
+                        <TextField 
+                          label="City" 
+                          variant="outlined" 
+                          fullWidth
+                          defaultValue={state.city} 
                           onChange={ (e)=>{
                             onChangeCity(e.target.value)
                           }}
@@ -115,14 +122,15 @@ const Menu = ({state, onChangeCity, onGetWeather, onGetFiveDaysWeather}) => {
               <FormControl className={css(styles.select)}>
                 <InputLabel>Service</InputLabel>
                 <Select
+                  defaultValue={0}
                   onChange={(e)=>{setService(e.target.value)}}
                 >
-                  <MenuItem value={1}>OpenWeather</MenuItem>
-                  <MenuItem value={2}>WeatherBit</MenuItem>
+                  <MenuItem value={0}>OpenWeather</MenuItem>
+                  <MenuItem value={1}>WeatherBit</MenuItem>
                 </Select>
               </FormControl>
               <Button variant="contained" color="primary" className={css(styles.button)} onClick={
-                service === 1 ? (queryOpenWeather) : (queryWeatherBit)
+                service === 0 ? (queryOpenWeather) : (queryWeatherBit)
               }>
                 Find Out
               </Button>
