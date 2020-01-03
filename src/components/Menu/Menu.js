@@ -23,24 +23,24 @@ const Menu = ({
 
   const queryOpenWeather = () => {
     const params = {
-      appid: "30d7ec24042383ae6c2ac11f8a95f608",
-      q: state.city
+      query: state.city
     };
 
     Promise.all([
       axios
-        .get("http://api.openweathermap.org/data/2.5/weather", { params })
+        .get("https://www.metaweather.com/api/location/search/", { params })
         .then(response => {
-          let data = {
-            city: response.data.name,
-            temp: response.data.main.temp - 273,
-            wind: response.data.wind.speed,
-            humidity: response.data.main.humidity,
-            precipitation: response.data.clouds.all
-          };
-          onGetWeather(data);
-        }),
-      axios
+          console.log(response.data);
+          // let data = {
+          //   city: response.data.name,
+          //   temp: response.data.main.temp - 273,
+          //   wind: response.data.wind.speed,
+          //   humidity: response.data.main.humidity,
+          //   precipitation: response.data.clouds.all
+          // };
+          // onGetWeather(data);
+        })
+      /*axios
         .get("http://api.openweathermap.org/data/2.5/forecast", { params })
         .then(response => {
           let data = response.data.list.splice(0, 5);
@@ -52,7 +52,7 @@ const Menu = ({
             precipitation: item.clouds.all
           }));
           onGetFiveDaysWeather(data);
-        })
+        })*/
     ])
       .then(onOpenFormFalse)
       .catch(alert);

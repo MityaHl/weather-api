@@ -5,7 +5,7 @@ export default StyleSheet.create({
     height: "55vh",
     fontSize: "60px",
     "@media (max-width: 1200px)": {
-      fontSize: "40px",
+      fontSize: "30px",
       height: "35vh"
     }
   }
