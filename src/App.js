@@ -10,7 +10,7 @@ import { useMediaQuery } from "react-responsive";
 
 const App = ({ state }) => {
   const screenSize = useMediaQuery({
-    query: "(max-device-width: 959px)"
+    query: "(max-width: 959px)"
   });
 
   const isLittleScreen = useCallback(

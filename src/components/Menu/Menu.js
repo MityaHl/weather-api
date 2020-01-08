@@ -23,42 +23,45 @@ const Menu = ({
 
   const queryOpenWeather = () => {
     const params = {
-      query: state.city
-    };
+      appid: '30d7ec24042383ae6c2ac11f8a95f608',
+      q: state.city
+    }
 
     Promise.all([
       axios
-        .get("https://www.metaweather.com/api/location/search/", { params })
-        .then(response => {
-          console.log(response.data);
-          // let data = {
-          //   city: response.data.name,
-          //   temp: response.data.main.temp - 273,
-          //   wind: response.data.wind.speed,
-          //   humidity: response.data.main.humidity,
-          //   precipitation: response.data.clouds.all
-          // };
-          // onGetWeather(data);
-        })
-      /*axios
-        .get("http://api.openweathermap.org/data/2.5/forecast", { params })
-        .then(response => {
-          let data = response.data.list.splice(0, 5);
-          data = data.map((item, index) => ({
+      .get('https://api.openweathermap.org/data/2.5/weather', {params})
+      .then(response => {
+        let data = {
+          city: response.data.name,
+          temp: response.data.main.temp - 273,
+          wind: response.data.wind.speed,
+          humidity: response.data.main.humidity,
+          precipitation: response.data.clouds.all
+        }
+        onGetWeather(data)
+      }),
+      axios
+      .get('https://api.openweathermap.org/data/2.5/forecast', {params})
+      .then(response => {
+        let data = response.data.list.splice(0,5); 
+        data = data.map((item, index) => (
+          {
             date: item.dt_txt,
             temp: item.main.temp - 273,
             humidity: item.main.humidity,
             wind: item.wind.speed,
             precipitation: item.clouds.all
-          }));
-          onGetFiveDaysWeather(data);
-        })*/
-    ])
-      .then(onOpenFormFalse)
-      .catch(alert);
-  };
+          }
+        ))
+        onGetFiveDaysWeather(data)
+      })
+    ]).then(onOpenFormFalse)
+      .catch(alert);    
+  }
+
 
   const queryWeatherBit = () => {
+    console.log('1111')
     const params = {
       key: "0678e5c49d0e4ca3abc879648e4342b3",
       city: state.city
