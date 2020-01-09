@@ -24,6 +24,7 @@ const isLocalhost = Boolean(
     if ('serviceWorker' in navigator) {
       // The URL constructor is available in all browsers that support SW.
       const publicUrl = new URL(process.env.PUBLIC_URL, window.location.href)
+      
       if (publicUrl.origin !== window.location.origin) {
         // Our service worker won't work if PUBLIC_URL is on a different origin
         // from what our page is served on. This might happen if a CDN is used to
@@ -33,7 +34,6 @@ const isLocalhost = Boolean(
   
       window.addEventListener('load', () => {
         const swUrl = `${process.env.PUBLIC_URL}/fetchServiceWorker.js`
-  
         if (isLocalhost) {
           // This is running on localhost. Let's check if a service worker still exists or not.
           checkValidServiceWorker(swUrl, config)
@@ -58,12 +58,14 @@ const isLocalhost = Boolean(
     navigator.serviceWorker
       .register(swUrl)
       .then((registration) => {
+      console.log("TCL: registerValidSW -> registration", registration)
         registration.onupdatefound = () => {
           const installingWorker = registration.installing
           if (installingWorker == null) {
             return
           }
           installingWorker.onstatechange = () => {
+            console.log("TCL: installingWorker.onstatechange -> installingWorker", installingWorker)
             if (installingWorker.state === 'installed') {
               if (navigator.serviceWorker.controller) {
                 // At this point, the updated precached content has been fetched,
