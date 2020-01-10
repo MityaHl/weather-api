@@ -61,7 +61,6 @@ const Menu = ({
 
 
   const queryWeatherBit = () => {
-    console.log('1111')
     const params = {
       key: "0678e5c49d0e4ca3abc879648e4342b3",
       city: state.city

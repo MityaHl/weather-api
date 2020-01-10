@@ -1,46 +1,38 @@
-// self.addEventListener('fetch', function(event) {
-//     event.respondWith(
-//       caches.match(event.request)
-//         .then(function(response) {
-//           if (response) {
-//             return response;
-//           }
-  
-//           var fetchRequest = event.request.clone();
-  
-//           return fetch(fetchRequest).then(
-//             function(response) {
-//               if(!response || response.status !== 200 || response.type !== 'basic') {
-//                 return response;
-//               }
-  
-//               var responseToCache = response.clone('cache');
-  
-//               caches.open()
-//                 .then(function(cache) {
-//                   cache.put(event.request, responseToCache);
-//                 });
-  
-//               return response;
-//             }
-//           );
-//         })
-//       );
-//   });
-
-
 self.addEventListener('fetch', (event) => {
   const time = new Date;
-  event.request.time = time.toLocaleTimeString();
-  console.log(event.request);
+
   event.respondWith(
-    caches.match(event.request).then((resp) => {
-      return resp || fetch(event.request).then((response) => {
-        return caches.open('v1').then((cache) => {
-          cache.put(event.request, response.clone());
-          return response;
+    caches.match(event.request).then((response) => {
+      if (response) {
+        const responseTime = response.headers.get('time')
+        if ( Number(time.getTime() - responseTime) < 7200000) {
+          console.log("Взял из кеша")
+          return response
+        }
+      }
+
+      return fetch(event.request)
+        .then((fetchResponse) => {
+          const requestInit = {
+            status: fetchResponse.status,
+            statusText: fetchResponse.statusText,
+            headers: {
+              time: time.getTime()
+            }
+          }
+          fetchResponse.headers.forEach((value, key) => {
+            requestInit.headers[key] = value
+          })
+          return caches.open('v1').then((cache) => {
+            const responseCopy = fetchResponse.clone()
+            responseCopy.blob()
+              .then((body) => {
+                cache.put(event.request, new Response(body, requestInit))
+                  .then(console.log('Обновил'))
+              })
+            return fetchResponse
+          });
         });
-      });
     })
   );
 });
