@@ -1,11 +1,10 @@
-import React from 'react';
-import styles from './MenuButtonStyles';
-import { css } from 'aphrodite';
-import Button from '@material-ui/core/Button';
-import Grid from '@material-ui/core/Grid';
+import React from "react";
+import styles from "./MenuButtonStyles";
+import { css } from "aphrodite";
+import Button from "@material-ui/core/Button";
+import Grid from "@material-ui/core/Grid";
 
-
-const MenuOpenButton = ({onChangeIsOpenForm}) => {
+const MenuOpenButton = ({ onChangeIsOpenForm }) => {
   return (
     <Grid container direction="column" alignItems="center">
       <Button
@@ -17,8 +16,7 @@ const MenuOpenButton = ({onChangeIsOpenForm}) => {
         Open form
       </Button>
     </Grid>
-  )
-}
+  );
+};
 
 export default MenuOpenButton;
-
