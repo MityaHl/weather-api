@@ -16,7 +16,8 @@ const Menu = ({
   onChangeCity,
   onGetOpenWeatherData,
   onGetWeatherBitData,
-  onOpenFormFalse
+  onOpenFormFalse,
+  trySaga
 }) => {
   const [service, setService] = useState(1);
 

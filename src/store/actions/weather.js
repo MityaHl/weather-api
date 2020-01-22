@@ -1,5 +1,10 @@
 import axios from "axios";
 
+// export const getWeather = () => ({
+//   type: "QUERY_WEATHER",
+//   payload: data 
+// });
+
 export const getWeather = () => dispatch => {
   let promise = new Promise((resolve, reject) => {
     function showPosition(position) {
