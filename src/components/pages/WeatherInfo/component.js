@@ -13,8 +13,8 @@ import CardHeader from "@material-ui/core/CardHeader";
 import Avatar from "@material-ui/core/Avatar";
 import { css } from "aphrodite";
 import InvertColorsIcon from "@material-ui/icons/InvertColors";
-import styles from "./WeatherInfoStyles";
-import OneDayInfo from "./OneDayInfo/OneDayInfo";
+import styles from "./styles";
+import OneDayInfo from "./OneDayInfo/index";
 
 const WeatherInfo = ({ weather, fiveDayWeather }) => {
   const date = new Date();

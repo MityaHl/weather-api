@@ -1,5 +1,4 @@
 import { takeEvery, call, put } from "redux-saga/effects";
-import loadWeather from "./store/actions/weatherBit";
 import axios from "axios";
 
 function loadWeatherBit(params) {

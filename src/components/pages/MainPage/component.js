@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { css } from "aphrodite";
 import Grid from "@material-ui/core/Grid";
 
-import styles from "./MainPageStyles";
+import styles from "./styles";
 
 const gridClassName = css(styles.text);
 

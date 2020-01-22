@@ -1,0 +1,9 @@
+{
+  "compilerOptions": {
+    "baseUrl": "./src",
+    "paths": {
+      "@actions/*": ["store/app/*"]
+    }
+  },
+  "exclude": ["public", "node_modules", "dist"]
+}

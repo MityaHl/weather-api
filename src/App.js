@@ -1,10 +1,10 @@
 import React, { useCallback } from "react";
 import Container from "@material-ui/core/Container";
-import Header from "./components/Header/Header";
-import MainPageContainer from "./components/MainPage/MainPageContainer";
-import MenuOpenButtonContainer from "./components/Menu/MenuOpenButton/MenuOpenButtonContainer";
-import MenuContainer from "./components/Menu/MenuContainer";
-import WeatherInfoContainer from "./components/WeatherInfo/WeatherInfoContainer";
+import Header from "./components/blocks/Header/index";
+import MainPageContainer from "./components/pages/MainPage/index";
+import MenuOpenButtonContainer from "./components/controls/MenuOpenButton/index";
+import MenuContainer from "./components/blocks/Menu//index";
+import WeatherInfoContainer from "./components/pages/WeatherInfo/index";
 import Grid from "@material-ui/core/Grid";
 import { useMediaQuery } from "react-responsive";
 

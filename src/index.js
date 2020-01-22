@@ -8,7 +8,8 @@ import * as serviceWorker from "./serviceWorker";
 import createSagaMiddleware from "redux-saga";
 import reducer from "./store/reducers";
 import thunk from "redux-thunk";
-import { watchLoad } from "./sagas";
+import { watchLoad } from "./sagas/weatherBitSaga";
+import { watchLoadOpenWeather } from "./sagas/openWeatherSaga";
 import "./index.css";
 
 const sagaMiddleware = createSagaMiddleware();
@@ -18,6 +19,7 @@ const store = createStore(
 );
 
 sagaMiddleware.run(watchLoad);
+sagaMiddleware.run(watchLoadOpenWeather);
 
 ReactDOM.render(
   <Provider store={store}>

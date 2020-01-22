@@ -1,5 +1,3 @@
-import axios from "axios";
-
 export const clickLoadWeather = params => ({
   type: "ON_LOAD_WEATHER",
   params: params

@@ -10,7 +10,7 @@ import ListItemSecondaryAction from "@material-ui/core/ListItemSecondaryAction";
 import CardHeader from "@material-ui/core/CardHeader";
 import Avatar from "@material-ui/core/Avatar";
 import { css } from "aphrodite";
-import styles from "./OneDayInfoStyles";
+import styles from "./styles";
 
 const OneDayInfo = ({ data, city, todayDate }) => {
   return (
