@@ -1,8 +1,8 @@
 import { connect } from "react-redux";
-import { enterCity } from "@actions/city";
-import { isOpenFormFalse } from "@actions/isOpenForm";
-import { clickLoadWeather } from "@actions/weatherBit";
-import { clickLoadOpenWeather } from "@actions/openWeather";
+import { enterCity } from "@/store/actions/city";
+import { isOpenFormFalse } from "@/store/actions/isOpenForm";
+import { clickLoadWeather } from "@/store/actions/weatherBit";
+import { clickLoadOpenWeather } from "@/store/actions/openWeather";
 
 import Menu from "./component";
 

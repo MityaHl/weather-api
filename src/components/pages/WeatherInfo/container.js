@@ -1,5 +1,5 @@
 import { connect } from "react-redux";
-import { enterCity } from "@actions/city";
+import { enterCity } from "@/store/actions/city";
 import WeatherInfo from "./component";
 
 const mapStateToProps = state => ({

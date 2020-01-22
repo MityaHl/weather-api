@@ -42,6 +42,10 @@ function* putData(params) {
       type: "QUERY_FIVE_DAY_WEATHER",
       payload: fiveDay
     });
+    yield put({
+      type: "IS_OPEN_FORM_FALSE",
+      payload: false
+    });
   } catch (error) {
     console.log(error);
   }

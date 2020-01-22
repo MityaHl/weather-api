@@ -1,11 +1,11 @@
 self.addEventListener('fetch', (event) => {
   const time = new Date;
-
+  const SECONDS_IN_TWO_HOURS = 7200000;
   event.respondWith(
     caches.match(event.request).then((response) => {
       if (response) {
         const responseTime = response.headers.get('time')
-        if ( Number(time.getTime() - responseTime) < 7200000) {
+        if ( Number(time.getTime() - responseTime) < SECONDS_IN_TWO_HOURS) {
           console.log("Взял из кеша")
           return response
         }

@@ -1,5 +1,5 @@
 import { connect } from "react-redux";
-import { isOpenFormTrue } from "@actions/isOpenForm";
+import { isOpenFormTrue } from "@/store/actions/isOpenForm";
 import MenuOpenButton from "./component";
 
 const mapStateToProps = state => ({});
