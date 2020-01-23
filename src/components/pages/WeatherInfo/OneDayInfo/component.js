@@ -1,18 +1,24 @@
 import React from "react";
+import { css } from "aphrodite";
 import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
 import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
 import List from "@material-ui/core/List";
-import ListItem from "@material-ui/core/ListItem";
-import ListItemIcon from "@material-ui/core/ListItemIcon";
-import ListItemSecondaryAction from "@material-ui/core/ListItemSecondaryAction";
 import CardHeader from "@material-ui/core/CardHeader";
 import Avatar from "@material-ui/core/Avatar";
-import { css } from "aphrodite";
+
+import OneValueRow from './OneValueRow';
+
+import { WEATHER_IMAGE } from "@/constants"
+import { values } from './functions';
+
 import styles from "./styles";
 
-const OneDayInfo = ({ data, city, todayDate }) => {
+const OneDayInfo = ({ data, city }) => {
+
+  const oneDatValues = values(data);
+
   return (
     <Grid item className={css(styles.item)}>
       <Card className={css(styles.card)}>
@@ -21,7 +27,7 @@ const OneDayInfo = ({ data, city, todayDate }) => {
             <Avatar aria-label="recipe">
               <img
                 alt="weather"
-                src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png"
+                src={WEATHER_IMAGE}
               />
             </Avatar>
           }
@@ -30,46 +36,11 @@ const OneDayInfo = ({ data, city, todayDate }) => {
         />
         <CardContent>
           <List className={css(styles.list)}>
-            <ListItem>
-              <ListItemIcon>
-                <i className="fas fa-temperature-high"></i>
-              </ListItemIcon>
-              <ListItemSecondaryAction>
-                <Typography className={css(styles.listText)}>
-                  {data.temp.toFixed(0) + " ℃"}
-                </Typography>
-              </ListItemSecondaryAction>
-            </ListItem>
-            <ListItem>
-              <ListItemIcon>
-                <i className="fas fa-cloud-rain"></i>
-              </ListItemIcon>
-              <ListItemSecondaryAction>
-                <Typography className={css(styles.listText)}>
-                  {data.precipitation + " %"}
-                </Typography>
-              </ListItemSecondaryAction>
-            </ListItem>
-            <ListItem>
-              <ListItemIcon>
-                <i className="fas fa-wind"></i>
-              </ListItemIcon>
-              <ListItemSecondaryAction>
-                <Typography className={css(styles.listText)}>
-                  {data.wind + " mps"}
-                </Typography>
-              </ListItemSecondaryAction>
-            </ListItem>
-            <ListItem>
-              <ListItemIcon>
-                <i className="fas fa-tint"></i>
-              </ListItemIcon>
-              <ListItemSecondaryAction>
-                <Typography className={css(styles.listText)}>
-                  {data.humidity + " %"}
-                </Typography>
-              </ListItemSecondaryAction>
-            </ListItem>
+            {
+              oneDatValues.map((item, index) => (
+                <OneValueRow data={item}/>
+              ))
+            }
           </List>
         </CardContent>
       </Card>

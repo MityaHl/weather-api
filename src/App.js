@@ -1,12 +1,13 @@
 import React, { useCallback } from "react";
 import Container from "@material-ui/core/Container";
+import Grid from "@material-ui/core/Grid";
+import { useMediaQuery } from "react-responsive";
+
 import Header from "./components/blocks/Header/index";
 import MainPageContainer from "./components/pages/MainPage/index";
 import MenuOpenButtonContainer from "./components/controls/MenuOpenButton/index";
 import MenuContainer from "./components/blocks/Menu//index";
 import WeatherInfoContainer from "./components/pages/WeatherInfo/index";
-import Grid from "@material-ui/core/Grid";
-import { useMediaQuery } from "react-responsive";
 
 const App = ({ state }) => {
   const screenSize = useMediaQuery({

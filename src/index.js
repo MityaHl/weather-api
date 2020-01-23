@@ -1,15 +1,16 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import AppContainer from "./AppContainer";
 import { Provider } from "react-redux";
 import { createStore, applyMiddleware } from "redux";
 import { composeWithDevTools } from "redux-devtools-extension";
-import * as serviceWorker from "./serviceWorker";
 import createSagaMiddleware from "redux-saga";
-import reducer from "./store/reducers";
 import thunk from "redux-thunk";
-import { watchLoad } from "./sagas/weatherBitSaga";
-import { watchLoadOpenWeather } from "./sagas/openWeatherSaga";
+
+import AppContainer from "./AppContainer";
+import { watchLoad } from "./sagas/weatherSaga";
+import * as serviceWorker from "./serviceWorker";
+import reducer from "./store/reducers";
+
 import "./index.css";
 
 const sagaMiddleware = createSagaMiddleware();
@@ -19,7 +20,6 @@ const store = createStore(
 );
 
 sagaMiddleware.run(watchLoad);
-sagaMiddleware.run(watchLoadOpenWeather);
 
 ReactDOM.render(
   <Provider store={store}>

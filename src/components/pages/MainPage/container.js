@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
-import { getWeather } from "@/store/actions/weather";
 
+import { getWeather } from "@/store/actions/weather";
 import MainPage from "./component";
 
 const mapStateToProps = state => ({});

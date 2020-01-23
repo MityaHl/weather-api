@@ -1,13 +1,3 @@
-export const clickLoadWeather = params => ({
-  type: "ON_LOAD_WEATHER",
-  params: params
-});
-
-export const loadWeather = data => ({
-  type: "LOAD_WEATHER",
-  payload: data
-});
-
 // export const weatherBit = params => dispatch => {
 //   Promise.all([
 //     axios

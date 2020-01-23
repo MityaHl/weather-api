@@ -1,4 +1,5 @@
 import React from "react";
+import { css } from "aphrodite";
 import Grid from "@material-ui/core/Grid";
 import Paper from "@material-ui/core/Paper";
 import Typography from "@material-ui/core/Typography";
@@ -11,10 +12,13 @@ import ListItemSecondaryAction from "@material-ui/core/ListItemSecondaryAction";
 import ListItemText from "@material-ui/core/ListItemText";
 import CardHeader from "@material-ui/core/CardHeader";
 import Avatar from "@material-ui/core/Avatar";
-import { css } from "aphrodite";
 import InvertColorsIcon from "@material-ui/icons/InvertColors";
-import styles from "./styles";
+
 import OneDayInfo from "./OneDayInfo/index";
+
+import { WEATHER_IMAGE } from "@/constants";
+
+import styles from "./styles";
 
 const WeatherInfo = ({ weather, fiveDayWeather }) => {
   const date = new Date();
@@ -38,7 +42,7 @@ const WeatherInfo = ({ weather, fiveDayWeather }) => {
               <Avatar aria-label="recipe">
                 <img
                   alt="weather"
-                  src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png"
+                  src={WEATHER_IMAGE}
                 />
               </Avatar>
             }
@@ -96,7 +100,6 @@ const WeatherInfo = ({ weather, fiveDayWeather }) => {
             <OneDayInfo
               key={index}
               data={item}
-              todayDate={todayDate}
               city={weather.city}
             />
           ))}

@@ -1,8 +1,8 @@
 import { connect } from "react-redux";
+
 import { enterCity } from "@/store/actions/city";
 import { isOpenFormFalse } from "@/store/actions/isOpenForm";
-import { clickLoadWeather } from "@/store/actions/weatherBit";
-import { clickLoadOpenWeather } from "@/store/actions/openWeather";
+import { clickLoadWeather } from "@/store/actions/weather";
 
 import Menu from "./component";
 
@@ -12,10 +12,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   onChangeCity: data => dispatch(enterCity(data)),
-  onGetOpenWeatherData: params => {
-    dispatch(clickLoadOpenWeather(params));
-  },
-  onGetWeatherBitData: params => {
+  onGetWeatherData: params => {
     dispatch(clickLoadWeather(params));
   },
   onOpenFormFalse: () => {

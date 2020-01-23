@@ -1,13 +1,3 @@
-export const clickLoadOpenWeather = params => ({
-  type: "ON_LOAD_OPEN_WEATHER",
-  params: params
-});
-
-export const loadWeather = data => ({
-  type: "LOAD_WEATHER",
-  payload: data
-});
-
 // export const openWeather = params => dispatch => {
 //   Promise.all([
 //     axios
