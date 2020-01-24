@@ -12,12 +12,8 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   onChangeCity: data => dispatch(enterCity(data)),
-  onGetWeatherData: params => {
-    dispatch(clickLoadWeather(params));
-  },
-  onOpenFormFalse: () => {
-    dispatch(isOpenFormFalse());
-  }
+  onGetWeatherData: params => dispatch(clickLoadWeather(params)),
+  onOpenFormFalse: () => dispatch(isOpenFormFalse()),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Menu);

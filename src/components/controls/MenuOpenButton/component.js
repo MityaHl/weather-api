@@ -7,7 +7,11 @@ import styles from "./styles";
 
 const MenuOpenButton = ({ onChangeIsOpenForm }) => {
   return (
-    <Grid container direction="column" alignItems="center">
+    <Grid
+      container
+      direction="column"
+      alignItems="center"
+    >
       <Button
         variant="contained"
         color="primary"

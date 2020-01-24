@@ -15,7 +15,7 @@ const App = ({ state }) => {
   });
 
   const isLittleScreen = useCallback(
-    screenSize ? <MenuOpenButtonContainer /> : <MenuContainer />
+    screenSize ? <MenuOpenButtonContainer/> : <MenuContainer/>
   );
 
   return (
@@ -24,13 +24,13 @@ const App = ({ state }) => {
       <Container>
         <Grid container spacing={3}>
           <Grid item md={3} xs={12}>
-            {state.isOpenForm ? <MenuContainer /> : isLittleScreen}
+            {state.isOpenForm ? <MenuContainer/> : isLittleScreen}
           </Grid>
           <Grid item md={9} xs={12}>
             {state.weather.city ? (
-              <WeatherInfoContainer />
+              <WeatherInfoContainer/>
             ) : (
-              <MainPageContainer />
+              <MainPageContainer/>
             )}
           </Grid>
         </Grid>

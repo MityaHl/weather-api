@@ -10,9 +10,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  onChangeCity: data => {
-    dispatch(enterCity(data));
-  }
+  onChangeCity: data => dispatch(enterCity(data))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(WeatherInfo);

@@ -14,7 +14,7 @@ import {
   openWeatherOneDayMapper,
   openWeatherFiveDayMapper,
   weathrStackOneDayMapper
-} from '@/requests/mappers'
+} from '@/helpers/mappers'
 
 export default [
   {

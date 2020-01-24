@@ -1,11 +1,11 @@
 import { QUERY_WEATHER, LOAD_WEATHER } from "@/constants"
 
 export default function weather(state = [], action) {
-  if (action.type === QUERY_WEATHER) {
-    return action.payload;
+  switch (action.type) {
+    case QUERY_WEATHER: return action.payload 
+
+    case LOAD_WEATHER: return action.payload
+
+    default: return state
   }
-  if (action.type === LOAD_WEATHER) {
-    return action.payload;
-  }
-  return state;
 }

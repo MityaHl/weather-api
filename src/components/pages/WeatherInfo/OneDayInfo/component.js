@@ -11,7 +11,7 @@ import Avatar from "@material-ui/core/Avatar";
 import OneValueRow from './OneValueRow';
 
 import { WEATHER_IMAGE } from "@/constants"
-import { values } from './functions';
+import { values } from '../../../../helpers/oneDayDataToArray';
 
 import styles from "./styles";
 

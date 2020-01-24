@@ -9,7 +9,7 @@ import MenuItem from "@material-ui/core/MenuItem";
 import FormControl from "@material-ui/core/FormControl";
 import Select from "@material-ui/core/Select";
 
-import services from '@/servicesConfig'
+import services from '@/servicesConfig';
 
 import styles from "./styles";
 
@@ -35,7 +35,11 @@ const Menu = ({
 
   return (
     <div>
-      <Grid container direction="column" alignItems="center">
+      <Grid
+        container
+        direction="column"
+        alignItems="center"
+      >
         <Typography
           variant="h6"
           className={css(styles.typography, styles.smallTypography)}

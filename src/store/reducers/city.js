@@ -1,8 +1,9 @@
 import { ENTER_CITY } from "@/constants"
 
 export default function city(state = "", action) {
-  if (action.type === ENTER_CITY) {
-    return action.payload;
+  switch (action.type) {
+    case ENTER_CITY: return action.payload 
+
+    default: return state
   }
-  return state;
 }

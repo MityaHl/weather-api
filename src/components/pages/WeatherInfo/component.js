@@ -34,8 +34,8 @@ const WeatherInfo = ({ weather, fiveDayWeather }) => {
     >
       <Paper className={css(styles.paper)}>
         <Typography 
-          variant="h5" 
-          component="h3" 
+          variant="h5"
+          component="h3"
           className={css(styles.today)}
         >
           Today
@@ -77,16 +77,16 @@ const WeatherInfo = ({ weather, fiveDayWeather }) => {
                 <ListItemIcon>
                   <i className="fas fa-2x fa-wind"></i>
                 </ListItemIcon>
-                <ListItemText primary="Wind spd." />
+                <ListItemText primary="Wind spd."/>
                 <ListItemSecondaryAction>
                   <Typography>{weather.wind.toFixed(1) + " mps"}</Typography>
                 </ListItemSecondaryAction>
               </ListItem>
               <ListItem className={css(styles.listItem)}>
                 <ListItemIcon>
-                  <InvertColorsIcon fontSize="large" />
+                  <InvertColorsIcon fontSize="large"/>
                 </ListItemIcon>
-                <ListItemText primary="Humidity" />
+                <ListItemText primary="Humidity"/>
                 <ListItemSecondaryAction>
                   <Typography>{weather.humidity + " %"}</Typography>
                 </ListItemSecondaryAction>
@@ -98,17 +98,17 @@ const WeatherInfo = ({ weather, fiveDayWeather }) => {
       {
         fiveDayWeather[1] && (
           <Paper className={css(styles.paper)}>
-            <Typography 
-              className={css(styles.today)} 
-              variant="h5" 
+            <Typography
+              className={css(styles.today)}
+              variant="h5"
               component="h3"
             >
               For a few days
             </Typography>
-            <Grid 
-              container 
-              direction="row" 
-              justify="space-around" 
+            <Grid
+              container
+              direction="row"
+              justify="space-around"
               spacing={1}
             >
               {fiveDayWeather.map((item, index) => (

@@ -6,9 +6,7 @@ import MainPage from "./component";
 const mapStateToProps = state => ({});
 
 const mapDispatchToProps = dispatch => ({
-  onGetWeather: () => {
-    dispatch(getWeather());
-  }
+  onGetWeather: () => dispatch(getWeather())
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(MainPage);
