@@ -1,36 +1,35 @@
-import React, { useState } from "react";
-import { css } from "aphrodite";
-import Typography from "@material-ui/core/Typography";
-import Grid from "@material-ui/core/Grid";
-import Button from "@material-ui/core/Button";
-import TextField from "@material-ui/core/TextField";
-import InputLabel from "@material-ui/core/InputLabel";
-import MenuItem from "@material-ui/core/MenuItem";
-import FormControl from "@material-ui/core/FormControl";
-import Select from "@material-ui/core/Select";
+import React, { useState } from 'react'
+import { css } from 'aphrodite'
+import Typography from '@material-ui/core/Typography'
+import Grid from '@material-ui/core/Grid'
+import Button from '@material-ui/core/Button'
+import TextField from '@material-ui/core/TextField'
+import InputLabel from '@material-ui/core/InputLabel'
+import MenuItem from '@material-ui/core/MenuItem'
+import FormControl from '@material-ui/core/FormControl'
+import Select from '@material-ui/core/Select'
 
-import services from '@/servicesConfig';
+import services from '@/servicesConfig'
 
-import styles from "./styles";
+import styles from './styles'
 
 const Menu = ({
   state,
   onChangeCity,
-  onGetWeatherData
+  onGetWeatherData,
 }) => {
-  const [serviceIndex, setServiceIndex] = useState(0);
+  const [serviceIndex, setServiceIndex] = useState(0)
 
   const requestServiceData = (serviceData = {}) => () => {
-
-     if (serviceData && serviceData.oneDayDataUrl) {
+    if (serviceData && serviceData.oneDayDataUrl) {
       onGetWeatherData({
         ...serviceData,
         parameters: {
           ...serviceData.defaultParameters,
           [serviceData.cityNameField]: state.city,
-        }
+        },
       })
-     }
+    }
   }
 
   return (
@@ -53,9 +52,8 @@ const Menu = ({
           value={state.city}
           className={css(styles.autoComplit)}
           onChange={e => {
-            onChangeCity(e.target.value);
-          }}
-        />
+            onChangeCity(e.target.value)
+          }} />
         <Typography variant="h6" className={css(styles.typography)}>
           Choose service
         </Typography>
@@ -64,7 +62,7 @@ const Menu = ({
           <Select
             defaultValue={0}
             onChange={e => {
-              setServiceIndex(e.target.value);
+              setServiceIndex(e.target.value)
             }}
           >
             {services.map((service, index) => (
@@ -82,7 +80,7 @@ const Menu = ({
         </Button>
       </Grid>
     </div>
-  );
-};
+  )
+}
 
-export default Menu;
+export default Menu

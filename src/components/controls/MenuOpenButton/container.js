@@ -1,12 +1,12 @@
-import { connect } from "react-redux";
+import { connect } from 'react-redux'
 
-import { isOpenFormTrue } from "@/store/actions/isOpenForm";
-import MenuOpenButton from "./component";
+import { isOpenFormTrue } from '@/store/actions/isOpenForm'
+import MenuOpenButton from './component'
 
-const mapStateToProps = state => ({});
+const mapStateToProps = state => ({})
 
 const mapDispatchToProps = dispatch => ({
-  onChangeIsOpenForm: () => dispatch(isOpenFormTrue())
-});
+  onChangeIsOpenForm: () => dispatch(isOpenFormTrue()),
+})
 
-export default connect(mapStateToProps, mapDispatchToProps)(MenuOpenButton);
+export default connect(mapStateToProps, mapDispatchToProps)(MenuOpenButton)

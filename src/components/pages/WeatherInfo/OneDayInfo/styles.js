@@ -1,13 +1,13 @@
-import { StyleSheet } from "aphrodite";
+import { StyleSheet } from 'aphrodite'
 
 export default StyleSheet.create({
   item: {
-    marginTop: "10px",
-    marginBottom: "10px"
+    marginTop: '10px',
+    marginBottom: '10px',
   },
   listText: {
-    "@media (max-width: 600px)": {
-      fontSize: "15px"
-    }
-  }
-});
+    '@media (max-width: 600px)': {
+      fontSize: '15px',
+    },
+  },
+})

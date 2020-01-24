@@ -1,9 +1,9 @@
-import React from "react";
-import { css } from "aphrodite";
-import Button from "@material-ui/core/Button";
-import Grid from "@material-ui/core/Grid";
+import React from 'react'
+import { css } from 'aphrodite'
+import Button from '@material-ui/core/Button'
+import Grid from '@material-ui/core/Grid'
 
-import styles from "./styles";
+import styles from './styles'
 
 const MenuOpenButton = ({ onChangeIsOpenForm }) => {
   return (
@@ -21,7 +21,7 @@ const MenuOpenButton = ({ onChangeIsOpenForm }) => {
         Open form
       </Button>
     </Grid>
-  );
-};
+  )
+}
 
-export default MenuOpenButton;
+export default MenuOpenButton

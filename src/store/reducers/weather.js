@@ -1,8 +1,8 @@
-import { QUERY_WEATHER, LOAD_WEATHER } from "@/constants"
+import { QUERY_WEATHER, LOAD_WEATHER } from '@/constants'
 
-export default function weather(state = [], action) {
+export default function weather (state = [], action) {
   switch (action.type) {
-    case QUERY_WEATHER: return action.payload 
+    case QUERY_WEATHER: return action.payload
 
     case LOAD_WEATHER: return action.payload
 
