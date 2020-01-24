@@ -33,7 +33,11 @@ const WeatherInfo = ({ weather, fiveDayWeather }) => {
       className={css(styles.service)}
     >
       <Paper className={css(styles.paper)}>
-        <Typography variant="h5" component="h3" className={css(styles.today)}>
+        <Typography 
+          variant="h5" 
+          component="h3" 
+          className={css(styles.today)}
+        >
           Today
         </Typography>
         <Card>
@@ -91,20 +95,33 @@ const WeatherInfo = ({ weather, fiveDayWeather }) => {
           </CardContent>
         </Card>
       </Paper>
-      <Paper className={css(styles.paper)}>
-        <Typography className={css(styles.today)} variant="h5" component="h3">
-          For a few days
-        </Typography>
-        <Grid container direction="row" justify="space-around" spacing={1}>
-          {fiveDayWeather.map((item, index) => (
-            <OneDayInfo
-              key={index}
-              data={item}
-              city={weather.city}
-            />
-          ))}
-        </Grid>
-      </Paper>
+      {
+        fiveDayWeather[1] && (
+          <Paper className={css(styles.paper)}>
+            <Typography 
+              className={css(styles.today)} 
+              variant="h5" 
+              component="h3"
+            >
+              For a few days
+            </Typography>
+            <Grid 
+              container 
+              direction="row" 
+              justify="space-around" 
+              spacing={1}
+            >
+              {fiveDayWeather.map((item, index) => (
+                <OneDayInfo
+                  key={index}
+                  data={item}
+                  city={weather.city}
+                />
+              ))}
+            </Grid>
+          </Paper>
+        )
+      }
     </Grid>
   );
 };

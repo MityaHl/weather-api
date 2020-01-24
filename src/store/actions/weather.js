@@ -7,7 +7,7 @@ import { QUERY_WEATHER, WEATHERBIT_FIVE_DAY, WEATHERBIT_ONE_DAY, WEATHERBIT_API_
 
 export const clickLoadWeather = params => ({
   type: ON_LOAD_WEATHER,
-  params: params
+  payload: params
 });
 
 export const onGetWeather = (data) => ({

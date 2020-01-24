@@ -6,7 +6,6 @@ self.addEventListener('fetch', (event) => {
       if (response) {
         const responseTime = response.headers.get('time')
         if ( Number(time.getTime() - responseTime) < SECONDS_IN_TWO_HOURS) {
-          console.log("Взял из кеша")
           return response
         }
       }
@@ -28,7 +27,6 @@ self.addEventListener('fetch', (event) => {
             responseCopy.blob()
               .then((body) => {
                 cache.put(event.request, new Response(body, requestInit))
-                  .then(console.log('Обновил'))
               })
             return fetchResponse
           });

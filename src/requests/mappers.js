@@ -39,3 +39,13 @@ export const openWeatherFiveDayMapper = (response) => {
 		precipitation: item.clouds.all
 	}));
 }
+
+export const weathrStackOneDayMapper = (response) => {
+	return response = {
+		city: response.data.location.name,
+		temp: response.data.current.temperature,
+		wind: response.data.current.wind_speed,
+		humidity: response.data.current.humidity,
+		precipitation: response.data.current.cloudcover
+	};
+}

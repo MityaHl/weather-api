@@ -6,8 +6,8 @@ export const weatherRequest = ({
 	mapper,
 }) => {
 	return axios
-		.get(url, { parameters })
+		.get(url, {params: parameters})
 		.then(response => {
-			mapper(response);
-		});
+			return mapper(response);
+		})
 } 

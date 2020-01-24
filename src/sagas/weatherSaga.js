@@ -6,7 +6,7 @@ import { isOpenFormFalse } from "@/store/actions/isOpenForm";
 import { weatherRequest } from "@/requests/request";
 
 function loadNewWeather(params) {
-  weatherRequest({
+  return weatherRequest({
     url: params.oneDayDataUrl,
     parameters: params.parameters,
     mapper: params.oneDayDataMapper,
@@ -14,21 +14,23 @@ function loadNewWeather(params) {
 }
 
 function loadNewFiveDayWeather(params) {
-  weatherRequest({
+  return weatherRequest({
     url: params.fiveDaysDataUrl,
     parameters: params.parameters,
     mapper: params.fiveDaysDataMapper,
   });
 }
 
-function* putData(params) {
+function* putData(action) {
   try {
-    console.log(params);
-    const data = yield call(loadNewWeather, params.params);
-    yield console.log(data);
+    const data = yield call(loadNewWeather, action.payload);
     yield put(loadWeather(data));
-    const fiveDay = yield call(loadNewFiveDayWeather, params.params);
-    yield put(getFiveDayWeather(fiveDay));
+    if(action.payload.fiveDaysDataUrl) {
+      const fiveDay = yield call(loadNewFiveDayWeather, action.payload);
+      yield put(getFiveDayWeather(fiveDay));
+    } else {
+      yield put(getFiveDayWeather([]));
+    }
     yield put(isOpenFormFalse());
   } catch (error) {
     console.log(error);

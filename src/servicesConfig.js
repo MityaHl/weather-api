@@ -5,12 +5,15 @@ import {
   OPENWEATHER_FIVE_DAY,
   WEATHERBIT_FIVE_DAY,
   WEATHERBIT_ONE_DAY,
+  WEATHERSTACK_ONE_DAY,
+  WEATHERSTACK_API_KEY
 } from "@/constants";
 import {
   weatherBitOneDayMapper,
   weatherBitFiveDayMapper,
   openWeatherOneDayMapper,
   openWeatherFiveDayMapper,
+  weathrStackOneDayMapper
 } from '@/requests/mappers'
 
 export default [
@@ -34,6 +37,15 @@ export default [
     cityNameField: 'city',
     defaultParameters: {
       key: WEATHERBIT_API_KEY,
+    }
+  },
+  {
+    title: 'WeatherStack',
+    oneDayDataUrl: WEATHERSTACK_ONE_DAY,
+    oneDayDataMapper: weathrStackOneDayMapper,
+    cityNameField: 'query',
+    defaultParameters: {
+      access_key: WEATHERSTACK_API_KEY,
     }
   },
 ]

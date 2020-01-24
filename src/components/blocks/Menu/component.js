@@ -4,7 +4,6 @@ import Typography from "@material-ui/core/Typography";
 import Grid from "@material-ui/core/Grid";
 import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
-import Autocomplete from "@material-ui/lab/Autocomplete";
 import InputLabel from "@material-ui/core/InputLabel";
 import MenuItem from "@material-ui/core/MenuItem";
 import FormControl from "@material-ui/core/FormControl";
@@ -24,7 +23,6 @@ const Menu = ({
   const requestServiceData = (serviceData = {}) => () => {
 
      if (serviceData && serviceData.oneDayDataUrl) {
-       console.log('2');
       onGetWeatherData({
         ...serviceData,
         parameters: {
@@ -32,7 +30,6 @@ const Menu = ({
           [serviceData.cityNameField]: state.city,
         }
       })
-      console.log('2');
      }
   }
 
@@ -45,21 +42,15 @@ const Menu = ({
         >
           Choose the city
         </Typography>
-        <Autocomplete
-          options={["one"]}
+        <TextField
+          label="City"
+          variant="outlined"
+          fullWidth
+          value={state.city}
           className={css(styles.autoComplit)}
-          style={{ width: 300 }}
-          renderInput={params => (
-            <TextField
-              label="City"
-              variant="outlined"
-              fullWidth
-              value={state.city}
-              onChange={e => {
-                onChangeCity(e.target.value);
-              }}
-            />
-          )}
+          onChange={e => {
+            onChangeCity(e.target.value);
+          }}
         />
         <Typography variant="h6" className={css(styles.typography)}>
           Choose service
@@ -73,7 +64,7 @@ const Menu = ({
             }}
           >
             {services.map((service, index) => (
-              <MenuItem value={index}>{service.title}</MenuItem>
+              <MenuItem value={index} key={index}>{service.title}</MenuItem>
             ))}
           </Select>
         </FormControl>

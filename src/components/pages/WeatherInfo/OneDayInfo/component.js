@@ -38,7 +38,7 @@ const OneDayInfo = ({ data, city }) => {
           <List className={css(styles.list)}>
             {
               oneDatValues.map((item, index) => (
-                <OneValueRow data={item}/>
+                <OneValueRow data={item} key={index}/>
               ))
             }
           </List>
