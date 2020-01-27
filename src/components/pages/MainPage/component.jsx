@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react'
+import PropTypes from 'prop-types'
 import { css } from 'aphrodite'
 import Grid from '@material-ui/core/Grid'
 
@@ -20,6 +21,10 @@ const MainPage = ({ onGetWeather }) => {
       <p>What is the weather today?</p>
     </Grid>
   )
+}
+
+MainPage.propTypes = {
+  onGetWeather: PropTypes.func,
 }
 
 export default MainPage

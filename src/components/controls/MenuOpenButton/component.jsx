@@ -1,5 +1,6 @@
 import React from 'react'
 import { css } from 'aphrodite'
+import PropTypes from 'prop-types'
 import Button from '@material-ui/core/Button'
 import Grid from '@material-ui/core/Grid'
 
@@ -22,6 +23,10 @@ const MenuOpenButton = ({ onChangeIsOpenForm }) => {
       </Button>
     </Grid>
   )
+}
+
+MenuOpenButton.propTypes = {
+  onChangeIsOpenForm: PropTypes.func,
 }
 
 export default MenuOpenButton

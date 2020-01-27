@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { css } from 'aphrodite'
+import PropTypes from 'prop-types'
 import Typography from '@material-ui/core/Typography'
 import Grid from '@material-ui/core/Grid'
 import Button from '@material-ui/core/Button'
@@ -81,6 +82,13 @@ const Menu = ({
       </Grid>
     </div>
   )
+}
+
+Menu.propTypes = {
+  state: PropTypes.object,
+  onChangeCity: PropTypes.func,
+  onGetWeatherData: PropTypes.func,
+  city: PropTypes.string,
 }
 
 export default Menu

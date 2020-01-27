@@ -1,5 +1,6 @@
 import React from 'react'
 import { css } from 'aphrodite'
+import PropTypes from 'prop-types'
 import Grid from '@material-ui/core/Grid'
 import Paper from '@material-ui/core/Paper'
 import Typography from '@material-ui/core/Typography'
@@ -117,6 +118,11 @@ const WeatherInfo = ({ weather, fiveDayWeather }) => {
       }
     </Grid>
   )
+}
+
+WeatherInfo.propTypes = {
+  fiveDayWeather: PropTypes.array,
+  weather: PropTypes.object,
 }
 
 export default WeatherInfo

@@ -1,5 +1,6 @@
 import React from 'react'
 import { css } from 'aphrodite'
+import PropTypes from 'prop-types'
 import Typography from '@material-ui/core/Typography'
 import ListItem from '@material-ui/core/ListItem'
 import ListItemIcon from '@material-ui/core/ListItemIcon'
@@ -20,6 +21,10 @@ const OneValueRow = ({ data }) => {
       </ListItemSecondaryAction>
     </ListItem>
   )
+}
+
+OneValueRow.propTypes = {
+  data: PropTypes.object,
 }
 
 export default OneValueRow
